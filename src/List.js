@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import ListItem from './ListItem.js';
 import AddItem from './AddItem.js';
-const uuidv4 = require('uuid');
-
+const { v4: uuidv4 } = require('uuid');
 class List extends Component {
 
   render() {

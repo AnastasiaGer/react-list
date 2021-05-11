@@ -20,7 +20,13 @@ class App extends Component {
    * as the value put into the "lists" array. It should then re-render this App component.
    */
   handleAddList(s) {
-      // Implement this function!
+    let updatedItems = this.state.items;
+    updatedItems[s.newItem] = [];
+
+    this.setState({
+      lists : this.state.lists.concat(s.newItem),
+      items : updatedItems
+    });
   }
 
   /**
@@ -32,7 +38,12 @@ class App extends Component {
    * the state, this function  should then re-render this App component.
    */
   handleAddItem(s) {
-      // Implement this function!
+    let updatedItems = this.state.items;
+    updatedItems[s.name].push(s.newItem);
+
+    this.setState({
+      items : updatedItems
+    });
   }
 
   /**

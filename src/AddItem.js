@@ -4,30 +4,22 @@ class AddItem extends Component {
 
   constructor() {
     super();
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
     this.state = {
-      newItem:{},
-      items: [], text: '', id: 0
+      newItem:{}
     }
   }
 
-  handleChange(e) {
-    this.setState({text: e.target.value});
-  }
-
   handleSubmit(e) {
-    e.preventDefault();
-    var newItem = {
-      text: this.state.text,
-      id: this.state.id
-    };
-    this.setState({
-      items: this.state.items.concat(newItem),
-      text: '',
-      id: this.state.id + 1
-    });
-  }
+      e.preventDefault(); // this prevents the page from reloading -- do not delete this line!
+      this.setState({
+        name : this.props.idName,
+        newItem : {name : this.refs.id.value}
+      },
+      function() {
+        this.props.addItem(this.state);
+      }
+    );
+    }
     
 
   render() {
@@ -38,7 +30,7 @@ class AddItem extends Component {
       <form ref='form' onSubmit={this.handleSubmit.bind(this)}>
       <div id={divName} ref={divName}>
         <label>Name</label><br />
-        <input type='text' ref='id' onChange={this.handleChange} value={this.state.text}/>
+        <input type='text' ref='id' />
         </div>
         <br />
         <input type='submit' value='Submit' />

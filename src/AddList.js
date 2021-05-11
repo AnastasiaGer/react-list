@@ -1,13 +1,21 @@
 import React, { Component } from 'react';
 
 class AddList extends Component {
-
+  constructor(props) {
+    super(props);
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.state = {newList : ''};
+  }
 
   handleSubmit(e) {
       e.preventDefault(); // this prevents the page from reloading -- do not delete this line!
-
-      // Implement the rest of this function here!
-  }
+      this.setState({
+        newList : this.refs.id.value
+      }, function() {
+        this.props.addList(this.state);
+      });
+    }
+  
 
   render() {
     return (
