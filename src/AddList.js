@@ -3,7 +3,6 @@ import React, { Component } from 'react';
 class AddList extends Component {
   constructor(props) {
     super(props);
-    this.handleSubmit = this.handleSubmit.bind(this);
     this.state = {newList : ''};
   }
 
