@@ -1,17 +1,17 @@
 import React, { Component } from 'react';
 
 class AddItem extends Component {
-
   constructor() {
     super();
     this.state = {
       newItem:{}
     }
   }
-
+  
   handleSubmit(e) {
-      e.preventDefault(); // this prevents the page from reloading -- do not delete this line!
-      this.setState({
+    e.preventDefault(); // this prevents the page from reloading -- do not delete this line!
+
+    this.setState({
         name : this.props.idName,
         newItem : {name : this.refs.id.value}
       },
@@ -19,7 +19,7 @@ class AddItem extends Component {
         this.props.addItem(this.state);
       }
     );
-    }
+  }
     
 
   render() {

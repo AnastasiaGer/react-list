@@ -8,8 +8,8 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-	lists: [], // this holds the name of each list
-	items: {} // this property names of this object are the names of the lists; their values are arrays of the items in each list
+      lists: [], // this holds the name of each list
+      items: {} // this property names of this object are the names of the lists; their values are arrays of the items in each list
     };
   }
 
@@ -21,10 +21,10 @@ class App extends Component {
    */
   handleAddList(s) {
     let updatedItems = this.state.items;
-    updatedItems[s.newItem] = [];
+    updatedItems[s.newList] = [];
 
     this.setState({
-      lists : this.state.lists.concat(s.newItem),
+      lists : this.state.lists.concat(s.newList),
       items : updatedItems
     });
   }
@@ -59,7 +59,6 @@ class App extends Component {
       </div>
     );
   }
-
 }
 
 export default App;
